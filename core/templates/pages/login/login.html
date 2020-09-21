@@ -1,0 +1,95 @@
+{% load static %}
+<style type="text/css">
+    .box {
+        width: 44%;
+        height: 500px;
+    }
+
+    body {
+        margin: 0px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #login {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(10, 33, 43, 0.9) !important;
+    }
+
+    .form-control {
+        width: 200px;
+    }
+
+    #login-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<script type="text/javascript" src="{% static 'pages/login/login.js' %}"></script>
+<div id="login" class="text-white">
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <!-- <h1>IAL Integra </h1> -->
+                    <img src="{% static 'img/ial_logo_branca.png' %}" height="100">
+                </div>
+                <div id="alert-erro" class="text-warning" role="alert" style="display:none">
+                    <span>
+                        Usuario ou Senha errada
+                    </span>
+                </div>
+                <div id="alert-validade" class="text-warning" role="alert" style="display:none">
+                    <span>
+                        Licensa expirou. <br>Entre em contato com o suporte.
+                    </span>
+                </div>
+                <div id="alert_message" class="text-warning" role="alert" style="display:none"></div>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="alert-user" class="text-warning" role="alert" style="display:none">
+                    <span>
+                        Preencha o Campo Usuario
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="labelUsuario">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="alert-pass" class="text-warning" role="alert" style="display:none;">
+                    Preencha o Campo senha
+                </div>
+                <div class="form-group">
+                    <label for="labelSenha">Senha</label>
+                    <input type="password" class="form-control" id="password" placeholder="Senha">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id='buttonLogin' onclick="loga()" class="btn btn-primary">Entrar</button>
+            </td>
+        </tr>
+    </table>
+</div>

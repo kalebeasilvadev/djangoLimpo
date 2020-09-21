@@ -1,0 +1,121 @@
+{% load static %}
+<script src="{% static 'pages/config/config.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<div id="form-banco">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>
+              <div id="numero_config"></div>
+            </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Cadastro</li>
+              <li class="breadcrumb-item active">Configurações</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Configurações</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label>Host</label>
+                      <input type="text" class="form-control" id="config_host" />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Porta</label>
+                      <select class="form-control" id="config_port">
+                        <option value="0">Selecione</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Automação</label>
+                      <select class="form-control" onchange="portaAuto(this.value)" id="config_automacao">
+                        <option value="0">AutoFid</option>
+                        <option value="1">CBC</option>
+                        <option value="2">Hourostech</option>
+                        <option value="3">EzTech</option>
+                        <option value="4">EzTech CBC</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Tempo Cmd</label>
+                      <input type="text" class="form-control" id="config_tempo_cmd" />
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Emulado</label>
+                      <select class="form-control" id="config_emulado">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Auto Start</label>
+                      <select class="form-control" id="config_start_auto">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label>Host App</label>
+                      <input type="text" class="form-control" id="config_host_app" />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Porta App</label>
+                      <input type="text" class="form-control" id="config_port_app" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button id="btn-novo" class="btn btn-primary" onclick="limpa()">
+                  Limpar
+                </button>
+                <button id="btn_salvar" class="btn btn-primary" onclick="atualiza()">
+                  Salvar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </section>
+</div>
+<div id="mensagem-excluir" title="Deseja excluir o Cartão?" style="display:none"></div>
+<input type="hidden" id="idsublicensa" value="" />
+<input type="hidden" id="novo" value="0" />
+<input type="hidden" id="idconfig" value="1" />
+</div>

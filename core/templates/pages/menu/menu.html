@@ -1,0 +1,17 @@
+{% load static %}
+<script src="{% static 'pages/menu/menu.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<link rel="stylesheet" type="text/css" href="{% static 'pages/menu/menu.css' %}">
+<div class="ml-0">
+    <div class="sidenav">
+        <a data-toggle='collapsed' aria-expanded='false' class='bg-primary list-group-item list-group-item-action seta'>
+            <div class='d-flex align-items-center'>
+                <span class='fas fa-search'></span>
+                <span class='menu-collapsed ' style="margin-left: 20px"><input id='menuSearch'
+                        onkeyup="buscaMenu(this.value)" type="text" class="form-control" placeholder=""
+                        style="height: 25px"></span>
+            </div>
+        </a>
+        <div id="menu"></div>
+        <div id="buscaMenu"></div>
+    </div>
+</div>

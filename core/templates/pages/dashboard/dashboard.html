@@ -1,0 +1,293 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'pages/dashboard/dashboard.css' %}">
+<script src="{% static 'pages/dashboard/dashboard.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<div id="form-banco">
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>
+                            <div id="numero_relatorio"></div>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vendas do 
+                                            Mês</div>
+                                        <div id='valor_mensal' class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        <div id='valor_mensal_quantidade' class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vendas
+                                            da Semana</div>
+                                        <div id='valor_semana' class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        <div id='valor_semana_quantidade' class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vendas
+                                            do Dia</div>
+                                        <div id='valor_diario' class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        <div id='valor_diario_quantidade' class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tipo_preco" class="row justify-content-md-center">
+
+                </div>
+                <br>
+                <div class="row" id="errosBaixa" style="display: none;">
+                    <div class="col-sm-4">
+                        <div class="card border-left-primary bg-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1" id="errosBaixaText"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-exclamation fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                </div> <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Tipo de preço</h1>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_preco_mes"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_preco_semana"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_preco"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row">
+                    <br>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_litros_mes"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_litros_semana"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_tipo_litros"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="row">
+                    <br>
+                </div>
+                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Produtos</h1>
+                </div>           
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_preco_mes"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_preco_semana"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_preco"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row">
+                    <br>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_litros_mes"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_litros_semana"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_produto_litros"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row">
+                    <br>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_semana"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <br>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-8 col-md-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <div style="width:100%;">
+                                        <canvas id="canvas_dia"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <div id="dashboard"></div>
+</div>

@@ -1,0 +1,100 @@
+{% load static %}
+<script
+  src="{% static 'pages/usuario/usuario.js' %}"
+  type="text/javascript"
+  charset="utf-8"
+  async
+  defer
+></script>
+<div id="form-banco">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <!-- <h1>Conexões </h1> -->
+            <h1><div id="numero_usuario"></div></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Cadastro</li>
+              <li class="breadcrumb-item active">Usuario</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Usuario</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Usuario</label>
+                      <input type="text" class="form-control" id="usuario_user" />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Senha</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="usuario_senha"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Nivel</label>
+                      <select
+                        class="form-control"
+                        id="usuario_nivel"
+                      >
+                        <option value="0">Master</option>
+                        <option value="1">ADM</option>
+                        <option value="2">Chefe de Pista</option>
+                        <option value="99">Frentista</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <button
+                    id="btn-novo"
+                    class="btn btn-primary"
+                    onclick="limpa()"
+                  >
+                    Limpar
+                  </button>
+                  <button
+                    id="btn_salvar"
+                    class="btn btn-primary"
+                    onclick="verifica_cadastro()"
+                  >
+                    Salvar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table id="table_usuario" class="table table-hover table-sm table-striped table-bordered" style="width:100%"></table>
+      </div>
+    </section>
+  </div>
+  <div
+    id="mensagem"
+    style="display:none"
+  ></div>
+  <input type="hidden" id="idsublicensa" value="" />
+  <input type="hidden" id="novo" value="0" />
+</div>
