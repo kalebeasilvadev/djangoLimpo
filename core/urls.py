@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from rest_framework import routers
 from token_jwt.views import (
@@ -23,11 +22,9 @@ urlpatterns = [
     path('api/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('', index),
-    path('web/corpo', corpo),
-    path('web/login', login, name='login'),   
+    path('web/login', login, name='login'),
     path('web/config', config, name='config'),
-    path('web/menu', menu, name='menu'),    
-    path('web/usuario', usuario, name='usuario'),    
+    path('web/usuario', usuario, name='usuario'),
     path('web/dashboard', dashboard, name='dashboard'),
 ]
 
