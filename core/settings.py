@@ -5,7 +5,7 @@ from api.loggers.logs import loggers
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'x0w_*#ozu%juk9v&w$el5i__ovdh^5i2ix7&xtu6+!s3^**0u('
+SECRET_KEY = 'x0w_*#ozu%juk9v&w$a16i__ovdh^5i2ix7&xtu6+!s3^**0u('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
